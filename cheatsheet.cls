@@ -45,8 +45,8 @@
 
 \ifthenelse{\boolean{defaultsection}}
 {\allsectionsfont{\sffamily\mdseries\upshape}}
-{
-	\renewcommand{\section}{
+{%
+	\renewcommand{\section}{%
 		\@startsection
 		{section}{1}{0pt}{-1.5ex plus -1ex minus -.2ex}
 		{1ex plus .2ex}{\large\sffamily\mdseries\upshape}
@@ -63,3 +63,5 @@
 \setlength\belowdisplayskip{2pt}
 \setlength\abovedisplayshortskip{-5pt}
 \setlength\belowdisplayshortskip{1pt}
+
+\endinput

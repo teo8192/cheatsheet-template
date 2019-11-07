@@ -13,6 +13,18 @@ Then just write as normal.
 
 The package `mathtools` is included, so `amsmath` is also included.
 
+## Installation
+
+Run the following commands:
+
+```bash
+git clone https://github.com/teo8192/cheatsheet-template.git
+cd cheatsheet-template
+texhash
+```
+
+Then you can use the class from wherever.
+
 ## Options
 
 Two options are included.

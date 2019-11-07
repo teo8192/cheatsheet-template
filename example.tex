@@ -2,19 +2,26 @@
 
 \usepackage{lipsum}
 
+\title{An example cheatsheet}
+
 \begin{document}
 
+\maketitle
+
 \section{kake}
+
 \lipsum[1-1]
-Some more filler text
-\maths[eq_1]{\sum_{n=1}^\infty 10^{-n!}=0.110001\cdots}
-\maths{5+2}
-\lipsum[2-2]
- 
-\maths[pie]{\huge\pi}
 
-As you can see in Equation~\ref{eq_1}, it is a transcendental number, as is~\ref{pie}.
+\begin{equation}
+	\sum_{n=1}^\infty 10^{-n!}=0.110001\cdots\label{eq_1}
+\end{equation}
 
-\lipsum[3-100]
+As you can see in Equation~\ref{eq_1}, it is a transcendental number, $3 + 5 = 8$.
+
+\[ \int_0^\infty f(x)\, dx = e^x \]
+
+\lipsum[1-1]
+
+\lipsum[3-50]
 
 \end{document}

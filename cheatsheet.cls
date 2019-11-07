@@ -34,13 +34,7 @@
 \AtBeginDocument{\begin{multicols}{4}}
 \AtEndDocument{\end{multicols}}
 
-\def\mathsepbefore{-8pt}
-\def\mathsepafter{-5pt}
-
-\newcommand{\maths}[2][]{{\vspace{\mathsepbefore}\ifthenelse{\equal{#1}{}}
-{\begin{displaymath} % blank reference, do not use numbering
-#2\vspace{\mathsepafter}
-\end{displaymath}}
-{\begin{equation} % reference provided, use numbering 
-#2\label{#1}\vspace{\mathsepafter}
-\end{equation}}}}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{2pt}
+\setlength\abovedisplayshortskip{-5pt}
+\setlength\belowdisplayshortskip{1pt}

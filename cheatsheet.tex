@@ -34,17 +34,18 @@
 \def\bodysize{\scriptsize}
 \def\sectionsize{\normalsize}
 
-\def\mathsep{-7pt}
+\def\mathsepbefore{-8pt}
+\def\mathsepafter{-5pt}
 
 \newenvironment{cheat}
 {\begin{multicols}{4}\bodysize}
 {\end{multicols}}
 
-\newcommand{\cheatsheetsection}[1]{{\hfill\break\sectionsize\textbf{#1}}}
-\newcommand{\maths}[2][]{{\vspace{\mathsep}\ifthenelse{\equal{#1}{}}
+\newcommand{\cheatsheetsection}[1]{{\vspace{-5pt}\hfill\break\sectionsize\textbf{#1}}}
+\newcommand{\maths}[2][]{{\vspace{\mathsepbefore}\ifthenelse{\equal{#1}{}}
 {\begin{equation*} % blank reference, do not use numbering
-#2\vspace{\mathsep}
+#2\vspace{\mathsepafter}
 \end{equation*}}
 {\begin{equation} % reference provided, use numbering 
-#2\label{#1}\vspace{\mathsep}
+#2\label{#1}\vspace{\mathsepafter}
 \end{equation}}}}

@@ -1,0 +1,50 @@
+\documentclass[a4paper,notitlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+
+\usepackage{multicol} % multiple columns on a page
+
+\usepackage{ifthen} % for conditionals in macro definitions
+
+% default margin is 1.875in default on 10pt
+\addtolength{\oddsidemargin}{-1.6in}
+\addtolength{\evensidemargin}{-1.6in}
+\addtolength{\textwidth}{3.2in}
+
+\addtolength{\topmargin}{-1.7in}
+\addtolength{\textheight}{3.2in}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0cm}
+
+\pagestyle{empty}
+
+% font sizes in increasing order:
+% tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge
+
+\def\bodysize{\scriptsize}
+\def\sectionsize{\normalsize}
+
+\def\mathsep{-7pt}
+
+\newenvironment{cheat}
+{\begin{multicols}{4}\bodysize}
+{\end{multicols}}
+
+\newcommand{\cheatsheetsection}[1]{{\hfill\break\sectionsize\textbf{#1}}}
+\newcommand{\maths}[2][]{{\vspace{\mathsep}\ifthenelse{\equal{#1}{}}
+{\begin{equation*} % blank reference, do not use numbering
+#2\vspace{\mathsep}
+\end{equation*}}
+{\begin{equation} % reference provided, use numbering 
+#2\label{#1}\vspace{\mathsep}
+\end{equation}}}}

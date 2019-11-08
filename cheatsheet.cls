@@ -48,7 +48,7 @@
 {%
 	\renewcommand{\section}{%
 		\@startsection
-		{section}{1}{0pt}{-1.5ex plus -1ex minus -.2ex}
+		{section}{1}{0pt}{-0.0ex plus -1ex minus -.2ex}
 		{1ex plus .2ex}{\large\sffamily\mdseries\upshape}
 	}
 }

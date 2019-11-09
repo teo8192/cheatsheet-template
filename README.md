@@ -27,10 +27,7 @@ Then you can use the class from wherever.
 
 ## Options
 
-Two options are included.
-
- * `defaultpackages`
- * `defaultsection`
+One option is included.
 
 If `defaultpackages` is enabled, some more packages are included.
 Enable it like this:
@@ -39,19 +36,3 @@ Enable it like this:
 \documentclass[defaultpackages]{cheatsheet}
 ```
 
-`defaultsection` is to avoid a bug with unnumbered sections, but in turn the sections get larger.
-
-## Bugs
-
-Do not use unnumbered sections if `defaultsection` is not enabled.
-e.g. only use
-
-```latex
-\section{test}
-```
-
-Do not use:
-
-```latex
-\section*{test}
-```

@@ -3,13 +3,8 @@
 
 
 \LoadClass[a4paper,notitlepage]{article}
-\RequirePackage{ifthen} % for conditionals in macro definitions
-\newboolean{defaultpackages}
-\setboolean{defaultpackages}{false}
-\newboolean{defaultsection}
-\setboolean{defaultsection}{false}
-\DeclareOption{defaultpackages}{\setboolean{defaultpackages}{true}}
-\DeclareOption{defaultsection}{\setboolean{defaultsection}{true}}
+\newif\if@defaultpackages\@defaultpackagesfalse
+\DeclareOption{defaultpackages}{\@defaultpackagestrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
@@ -19,7 +14,7 @@
 \RequirePackage{sectsty}
 \RequirePackage{multicol} % multiple columns on a page
 
-\ifthenelse{\boolean{defaultpackages}}{
+\if@defaultpackages
 \ClassInfo{cheatsheet}{Loading of default packages}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english]{babel}
@@ -28,8 +23,7 @@
 \RequirePackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \RequirePackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \RequirePackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-}
-{\ClassInfo{cheatsheet}{No loading of default packages}}
+\fi
 
 % default margin is 1.875in default on 10pt
 \setlength{\topmargin}{-37mm}
@@ -38,21 +32,42 @@
 \setlength{\evensidemargin}{-22mm}
 \setlength{\textwidth}{203mm}
 
+% fuck indentation in particular
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{0cm}
 
+% Small fontsize
 \renewcommand{\normalsize}{\fontsize{7pt}{7pt}\selectfont}
 
-\ifthenelse{\boolean{defaultsection}}
-{\allsectionsfont{\sffamily\mdseries\upshape}}
-{%
-	\renewcommand{\section}{%
-		\@startsection
-		{section}{1}{0pt}{-0.0ex plus -1ex minus -.2ex}
-		{1ex plus .2ex}{\large\sffamily\mdseries\upshape}
-	}
-}
+% Custon titles n shit
+\RequirePackage{titlesec}
+\titleformat{\section}[block]% shape
+{\large\sffamily\mdseries\upshape\bfseries}% % format
+{\thesection\hfill}% label
+{.5em}% separator between label and section stuff
+{}% before-code
+{}% after-code
+\titleformat{\subsection}[block]% shape
+{\normalfont\sffamily\mdseries\upshape\bfseries}% % format
+{\thesubsection}{.5em}{}{}
+\titleformat{\subsubsection}[block]% shape
+{\sffamily\bfseries}% % format
+{\thesubsubsection}{.5em}{}{}
+\titlespacing*{\section}{0pt}% left-sep
+{0pt}% before-sep
+{0pt}% after-sep
+\titlespacing*{\subsection}{0pt}{1pt}{1pt}
+\titlespacing*{\subsubsection}{0pt}{1pt}{1pt}
 
+\renewcommand{\thesection}{\arabic{section}}
+
+\renewcommand{\theequation}{{\oldstylenums{\thesection}.\oldstylenums{\arabic{equation}}}}
+
+
+% ToC definitions
+\renewcommand\l@section{\@dottedtocline{1}{0em}{1em}}
+\renewcommand\l@subsection{\@dottedtocline{2}{1em}{3em}}
+\renewcommand\l@subsubsection{\@dottedtocline{2}{1em}{3em}}
 
 \pagestyle{empty}
 

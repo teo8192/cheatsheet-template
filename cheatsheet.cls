@@ -10,9 +10,11 @@
 
 \pagenumbering{arabic} % needs this even tho page numbering is not used
 
+\RequirePackage{float}
 \RequirePackage{mathtools}
+\RequirePackage{amssymb}
 \RequirePackage{sectsty}
-\RequirePackage{multicol} % multiple columns on a page
+\RequirePackage[colaction]{multicol} % multiple columns on a page
 
 \if@defaultpackages
 \ClassInfo{cheatsheet}{Loading of default packages}
@@ -23,6 +25,8 @@
 \RequirePackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \RequirePackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \RequirePackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\RequirePackage{tikz}
+\RequirePackage[framemethod=tikz]{mdframed} % Allows defining custom boxed/framed environments
 \fi
 
 % default margin is 1.875in default on 10pt
@@ -77,5 +81,51 @@
 \setlength\belowdisplayskip{2pt}
 \setlength\abovedisplayshortskip{-5pt}
 \setlength\belowdisplayshortskip{1pt}
+
+
+\usepackage{etoolbox}
+\makeatletter
+\newcounter{brnk@col@count}
+\renewcommand*\addcontentsline[3]
+  {%
+    \addtocontents{#1}
+      {%
+        \protect\contentsline{#2}{#3}
+          {\thepage\ifnum\doublecol@number>0\relax.\string\brnk@cur@col\fi}%
+      }%
+  }
+\def\brnk@patch@last
+  {%
+    \stepcounter{brnk@col@count}%
+    \protected@write\@auxout{}%
+      {%
+        \string\@writefile{toc}%
+          {\string\def\string\brnk@cur@col{\arabic{brnk@col@count}}}%
+      }%
+  }
+\def\brnk@patch@else
+  {%
+    \ifmc@firstcol
+      \setcounter{brnk@col@count}{0}%
+    \fi
+    \brnk@patch@last
+  }
+\def\brnk@patch@error
+  {%
+    \GenericError{}
+      {Patching of \string\mc@col@status@write\space failed}
+      {%
+        Make sure `colaction` was set as an option for `multicol`.%
+        \MessageBreak
+        Else you're screwed, don't use the code provided here.\MessageBreak%
+      }
+      {No further help available.}%
+  }
+\pretocmd\mc@lastcol@status@write{\brnk@patch@last}{}{\brnk@patch@error}
+\pretocmd\mc@col@status@write{\brnk@patch@else}{}{\brnk@patch@error}
+\makeatother
+
+
+
 
 \endinput

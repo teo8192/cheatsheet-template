@@ -68,6 +68,12 @@
 \renewcommand\l@subsection{\@dottedtocline{2}{1em}{2em}}
 \renewcommand\l@subsubsection{\@dottedtocline{2}{1em}{3em}}
 
+%\renewcommand\ext@table{toc}
+%\renewcommand\ext@figure{toc}
+
+%\renewcommand\l@table[2]{\@dottedtocline{2}{1em}{3em}{#1~(table)}{#2}}
+%\renewcommand\l@figure[2]{\@dottedtocline{2}{1em}{3em}{#1~(figure)}{#2}}
+
 \pagestyle{empty}
 
 \AtBeginDocument{\begin{multicols}{4}}

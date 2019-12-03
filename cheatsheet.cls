@@ -25,8 +25,6 @@
 \RequirePackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \RequirePackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \RequirePackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-\RequirePackage{tikz}
-\RequirePackage[framemethod=tikz]{mdframed} % Allows defining custom boxed/framed environments
 \fi
 
 % default margin is 1.875in default on 10pt

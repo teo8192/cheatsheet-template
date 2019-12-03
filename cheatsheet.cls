@@ -10,6 +10,7 @@
 
 \pagenumbering{arabic} % needs this even tho page numbering is not used
 
+\RequirePackage{etoolbox}
 \RequirePackage{float}
 \RequirePackage{mathtools}
 \RequirePackage{amssymb}
@@ -86,9 +87,12 @@
 \setlength\abovedisplayshortskip{-5pt}
 \setlength\belowdisplayshortskip{1pt}
 
+%\setlength{\belowcaptionskip}{pt}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\intextsep}{2pt plus 2pt minus 2pt}
+\setlength{\floatsep}{2pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{2pt plus 2pt minus 2pt}
 
-\usepackage{etoolbox}
-\makeatletter
 \newcounter{brnk@col@count}
 \renewcommand*\addcontentsline[3]
   {%
@@ -127,9 +131,5 @@
   }
 \pretocmd\mc@lastcol@status@write{\brnk@patch@last}{}{\brnk@patch@error}
 \pretocmd\mc@col@status@write{\brnk@patch@else}{}{\brnk@patch@error}
-\makeatother
-
-
-
 
 \endinput

@@ -87,8 +87,7 @@
 \setlength\abovedisplayshortskip{-5pt}
 \setlength\belowdisplayshortskip{1pt}
 
-%\setlength{\belowcaptionskip}{pt}
-\setlength{\abovecaptionskip}{2pt}
+\setlength{\abovecaptionskip}{0pt}
 \setlength{\intextsep}{2pt plus 2pt minus 2pt}
 \setlength{\floatsep}{2pt plus 2pt minus 2pt}
 \setlength{\textfloatsep}{2pt plus 2pt minus 2pt}

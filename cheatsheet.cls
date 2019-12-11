@@ -79,10 +79,13 @@
 %\renewcommand\l@table[2]{\@dottedtocline{2}{1em}{3em}{#1~(table)}{#2}}
 %\renewcommand\l@figure[2]{\@dottedtocline{2}{1em}{3em}{#1~(figure)}{#2}}
 
+\def\@numberofcolumns{4}
+\newcommand{\setnumcols}[1]{\def\@numberofcolumns{#1}}
+
 \pagestyle{empty}
 
-\AtBeginDocument{\begin{multicols}{4}}
-\AtEndDocument{\end{multicols}}
+\AtBeginDocument{\begin{multicols*}{\@numberofcolumns}}
+\AtEndDocument{\end{multicols*}}
 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{2pt}

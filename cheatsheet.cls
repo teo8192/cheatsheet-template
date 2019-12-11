@@ -71,7 +71,7 @@
 % ToC definitions
 \renewcommand\l@section{\@dottedtocline{1}{0em}{1em}}
 \renewcommand\l@subsection{\@dottedtocline{2}{1em}{2em}}
-\renewcommand\l@subsubsection{\@dottedtocline{2}{1em}{3em}}
+\renewcommand\l@subsubsection{\@dottedtocline{3}{1em}{3em}}
 
 %\renewcommand\ext@table{toc}
 %\renewcommand\ext@figure{toc}

@@ -28,6 +28,8 @@
 \RequirePackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 \fi
 
+\setlength{\columnsep}{0.2cm}
+
 % default margin is 1.875in default on 10pt
 \setlength{\topmargin}{-37mm}
 \setlength{\textheight}{290mm}

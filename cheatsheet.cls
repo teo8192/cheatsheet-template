@@ -87,6 +87,8 @@
 \AtBeginDocument{\begin{multicols*}{\@numberofcolumns}}
 \AtEndDocument{\end{multicols*}}
 
+\newcommand\vect{\overrightarrow}
+
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{2pt}
 \setlength\abovedisplayshortskip{-5pt}

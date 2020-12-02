@@ -4,7 +4,9 @@
 
 \LoadClass[a4paper,notitlepage]{article}
 \newif\if@defaultpackages\@defaultpackagesfalse
-\DeclareOption{defaultpackages}{\@defaultpackagestrue}
+\DeclareOption{defpkg}{\@defaultpackagestrue}
+\newif\if@mathpkg\@mathpkgfalse
+\DeclareOption{math}{\@mathpkgtrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
@@ -13,14 +15,25 @@
 \RequirePackage{etoolbox}
 \RequirePackage{float}
 \RequirePackage{mathtools}
-\RequirePackage{amssymb}
 \RequirePackage{sectsty}
 \RequirePackage[colaction]{multicol} % multiple columns on a page
+
+\if@mathpkg
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\newcommand{\R}{\mathbb{R}}
+
+\def\mb{\mathbf}
+\def\d{\partial}
+\newcommand{\pt}[2]{\frac{\d{} {#1}}{\d{} {#2}}}
+
+\newcommand\defeq{\stackrel{\mathclap{\normalfont\tiny\mbox{def}}}{=}}
+\fi
 
 \if@defaultpackages
 \ClassInfo{cheatsheet}{Loading of default packages}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[english]{babel}
+% \RequirePackage[english]{babel}
 \RequirePackage{booktabs} % for much better looking tables
 \RequirePackage{array} % for better arrays (eg matrices) in maths
 \RequirePackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
@@ -28,11 +41,15 @@
 \RequirePackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 \fi
 
+\RequirePackage{enumitem}
+\setlist{nosep} % no separation in lists
+
 \setlength{\columnsep}{0.2cm}
 
 % default margin is 1.875in default on 10pt
 \setlength{\topmargin}{-37mm}
 \setlength{\textheight}{290mm}
+% \setlength{\textheight}{285mm}
 \setlength{\oddsidemargin}{-22mm}
 \setlength{\evensidemargin}{-22mm}
 \setlength{\textwidth}{203mm}

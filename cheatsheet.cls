@@ -27,6 +27,9 @@
 \def\d{\partial}
 \newcommand{\pt}[2]{\frac{\d{} {#1}}{\d{} {#2}}}
 
+\newcommand{\divergence}{\text{div}\,}
+\newcommand{\curl}{\text{curl}\,}
+
 \newcommand\defeq{\stackrel{\mathclap{\normalfont\tiny\mbox{def}}}{=}}
 \fi
 
